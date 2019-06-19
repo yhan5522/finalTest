@@ -111,8 +111,14 @@
 <script src="http://code.jquery.com/jquery-3.3.1.js"></script>
 <script>
 	$(document).ready(function(){
-		$('.food').on("change", function(){
-			$('.txt').text($('.food').val());
+		$('#schoolfood').on("change", function(){
+			$('.txt').text($(this).val());
+		})
+		$('#chicken').on("change", function(){
+			$('.txt').text($(this).val());
+		})
+		$('#pizza').on("change", function(){
+			$('.txt').text($(this).val());
 		})
 	})
 </script>
@@ -124,7 +130,7 @@
 			<ul>
 		    	<li class="menu">
 		        	<a class="under" href="#">분식</a>
-					<select multiple="multiple" class="food">
+					<select multiple="multiple" id="schoolfood">
 						<option value="김밥">김밥</option>
 						<option value="참치김밥">참치김밥</option>
 						<option value="주먹밥">주먹밥</option>
@@ -139,7 +145,7 @@
 		        </li>
 		        <li class="menu">
 		        	<a class="under" href="#">치킨</a>
-		        	<select multiple="multiple" class="food">
+		        	<select multiple="multiple" id="chicken">
 						<option value="후라이드">후라이드</option>
 						<option value="양념">양념</option>
 						<option value="간장">간장</option>
@@ -154,7 +160,7 @@
 		        </li>
 		        <li class="menu">
 		        	<a class="under" href="#">피자</a>
-		        	<select multiple="multiple" class="food">
+		        	<select multiple="multiple" id="pizza">
 						<option value="콤비네이션">콤비네이션</option>
 						<option value="포테이토">포테이토</option>
 						<option value="치즈">치즈</option>
