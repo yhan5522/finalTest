@@ -34,6 +34,8 @@ public class HeloController {
 	
 	@RequestMapping(value="/", method=RequestMethod.POST)
 	public ModelAndView send(@RequestParam(value="schoolfood",required=false)String[] schoolfood,
+							 @RequestParam(value="chicken",required=false)String[] chicken,
+							 @RequestParam(value="pizza",required=false)String[] pizza,
 							 @RequestParam("address")String address,
 							 ModelAndView mav){
 
@@ -41,12 +43,29 @@ public class HeloController {
 		try {
 			food += schoolfood[0];
 			for (int i=1; i<schoolfood.length; i++) {
-				food+="," + schoolfood[i];
+				food+=", " + schoolfood[i];
 			}
 		} catch (NullPointerException e) {
-			food += "null";
+			food += "";
 		}
 		
+		try {
+			food += chicken[0];
+			for (int i=1; i<chicken.length; i++) {
+				food+=", " + chicken[i];
+			}
+		} catch (NullPointerException e) {
+			food += "";
+		}
+		
+		try {
+			food += pizza[0];
+			for (int i=1; i<pizza.length; i++) {
+				food+=", " + pizza[i];
+			}
+		} catch (NullPointerException e) {
+			food += "";
+		}
 		
 		mav.addObject("food", food);
 		mav.addObject("address", address);
