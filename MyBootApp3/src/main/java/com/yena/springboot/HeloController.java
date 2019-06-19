@@ -31,7 +31,28 @@ public class HeloController {
 		
 	}
 
-	
+	/**
+	 * 	@fn		public ModelAndView send(@RequestParam(value="schoolfood",required=false)String[] schoolfood,
+	 *						 			 @RequestParam(value="chicken",required=false)String[] chicken,
+	 *						 			 @RequestParam(value="pizza",required=false)String[] pizza,
+	 *						 			 @RequestParam("address")String address,
+	 *						 			 ModelAndView mav)
+	 *	@brief	shoolfood, chicken, pizza 값을 받아 선택한 음식을 저장하고 address 값을 받아 입력한 주소 값을 저장하며 가격을 계산
+	 *	@details
+	 *
+	 *	@author	한예나
+	 *	@date	2019-06-20
+	 *
+	 *	@param	String[] schoolfood     HTML에서 선택된 값 저장
+	 *			String[] chicken		HTML에서 선택된 값 저장
+	 *			String[] pizza			HTML에서 선택된 값 저장
+	 *			String address			HTML에서 입력받은 문자열 저장
+	 *			ModelAndView mav 		ModelAndView 변수
+	 *
+	 *	@remark	선택된 음식을 출력하기 위해 food 선언
+	 *			가격을 계산하기 위해 price 선언
+	 *			배달비기 포함된 가격을 계산하기 위해 totalprice 선언       [2019-05-20; 한예나]
+	 */
 	@RequestMapping(value="/", method=RequestMethod.POST)
 	public ModelAndView send(@RequestParam(value="schoolfood",required=false)String[] schoolfood,
 							 @RequestParam(value="chicken",required=false)String[] chicken,
