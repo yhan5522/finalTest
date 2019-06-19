@@ -40,11 +40,14 @@ public class HeloController {
 							 ModelAndView mav){
 
 		String food = "";
+		int price = 0;
+		
 		try {
 			food += schoolfood[0];
 			for (int i=1; i<schoolfood.length; i++) {
 				food+=", " + schoolfood[i];
 			}
+			price = 3000 * schoolfood.length;
 		} catch (NullPointerException e) {
 			food += "";
 		}
@@ -68,6 +71,7 @@ public class HeloController {
 		}
 		
 		mav.addObject("food", food);
+		mav.addObject("price", price);
 		mav.addObject("address", address);
 		mav.setViewName("index");
 		return mav;

@@ -110,7 +110,10 @@
 </style>
 <script src="http://code.jquery.com/jquery-3.3.1.js"></script>
 <script>
+	
+	
 	$(document).ready(function(){
+		
 		$('#schoolfood').on("change", function(){
 			$('.txt').text($(this).val());
 		})
@@ -120,13 +123,16 @@
 		$('#pizza').on("change", function(){
 			$('.txt').text($(this).val());
 		})
+
 	})
+	
+	
 </script>
 </head>
 <body>
 	<div id="wrap">
 		<h1>음식 주문</h1>
-		<form method="post" action="/">
+		<form name="form1" method="post" action="/">
 			<ul>
 		    	<li class="menu">
 		        	<a class="under" href="#">분식</a>
@@ -188,7 +194,7 @@
 				<tr><th>음식</th><th>가격</th><th>주소</th></tr>
 				<tr>
 					<td th:text="${food}"></td>
-					<td th:text="${res}"></td>
+					<td th:text="${price}"></td>
 					<td th:text="${address}"></td>
 				</tr>
 			</table>
