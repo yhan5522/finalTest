@@ -79,6 +79,32 @@
 	#button_div {
 		text-align: center;
 	}
+	hr {
+		border: 1px solid #244a96;
+		backgournd: #244a96;
+		margin-top: 50px;
+	}
+	table {
+		width: 510px;
+		margin-top: 20px;
+	}
+	th {
+		padding: 5px;
+		width: 70px;
+		background-color: #8bd8ee;
+	}
+	td {
+		padding: 5px;
+		background-color: #daeef4;
+	}
+	tr:last-child {
+		text-align: center;
+	}
+	tr:last-child td {
+		font-size: 14pt;
+		color: #f04141;
+		background-color: #fff;
+	}
 </style>
 <script src="http://code.jquery.com/jquery-3.3.1.js"></script>
 <script>
@@ -147,6 +173,24 @@
 		   		<input class="button" type="reset" value="취소">
 		   	</div>
 		</form>
+		<hr>
+		<table th:each="obj: ${datalist}">
+			<tr>
+				<th>메뉴</th>
+				<td th:text="${obj.food}"></td>
+			</tr>
+			<tr>
+				<th>가격</th>
+				<td th:text="${res}"></td>
+			</tr>
+			<tr>
+				<th>주소</th>
+				<td th:text="${obj.address"></td>
+			</tr>
+			<tr>
+				<td colspan=2>30분 이상 걸립니다</td>
+			</tr>
+		</table>
 	</div>
 </body>
 </html>
