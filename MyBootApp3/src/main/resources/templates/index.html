@@ -93,15 +93,16 @@
 		padding: 5px;
 		width: 70px;
 		background-color: #8bd8ee;
+		color: #fff;
 	}
 	td {
 		padding: 5px;
 		background-color: #daeef4;
 	}
-	tr:last-child {
+	tr:first-child {
 		text-align: center;
 	}
-	tr:last-child td {
+	tr:first-child td {
 		font-size: 14pt;
 		color: #f04141;
 		background-color: #fff;
@@ -174,17 +175,15 @@
 		   		<input class="button" type="reset" value="취소">
 		   	</div>
 		   	<hr>
-			<table th:each="obj: ${datalist}">
+			<table>
 				<tr>
-					<th>메뉴</th>
+					<td colspan=3>30분 이상 걸립니다</td>
+				</tr>
+				<tr><th>음식</th><th>가격</th><th>주소</th></tr>
+				<tr th:each="obj : ${datalist}">
 					<td th:text="${obj.food}"></td>
-				</tr>
-				<tr>
-					<th>주소</th>
+					<td th:text="${res}"></td>
 					<td th:text="${obj.address}"></td>
-				</tr>
-				<tr>
-					<td colspan=2>30분 이상 걸립니다</td>
 				</tr>
 			</table>
 		</form>
