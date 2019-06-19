@@ -41,6 +41,7 @@ public class HeloController {
 
 		String food = "";
 		int price = 0;
+		int totalprice = 0;
 		
 		try {
 			food += schoolfood[0];
@@ -71,9 +72,15 @@ public class HeloController {
 		} catch (NullPointerException e) {
 			food += "";
 		}
-	
+		
+		if(price<20000) {
+			totalprice = price+2500;
+		} else {
+			totalprice = price;
+		}
+		
 		mav.addObject("food", food);
-		mav.addObject("price", price);
+		mav.addObject("totalprice", totalprice);
 		mav.addObject("address", address);
 		mav.setViewName("index");
 		return mav;
