@@ -81,6 +81,7 @@ public class HeloController {
 			} else {
 				totalprice = price;
 			}
+			mav.addObject("timealert", "30분 이상 소요됩니다.");
 			mav.addObject("food", food);
 			mav.addObject("totalprice", totalprice);
 			mav.addObject("address", address);
