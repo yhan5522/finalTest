@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>주문</title>
+<style>
+	body {
+		width: 510px;
+		margin: 0 auto;
+	}
+	h1 {
+		text-align: center;
+		font-weight: bold;
+		color: #244a96;
+	}
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		text-align: center;	
+		margin-bottom: 180px;
+	}
+	li a, .under {
+		display: inline-block;
+		color: #244a96;
+		text-align: center;
+		text-decoration: none;
+		font-style: normal;
+		font-size: 16px;
+		font-weight: bold;
+		background-color: #8bd8ee;
+		padding: 25px 68px;	
+	}
+	li a:hover, .menu:hover .under {
+		background-color: #8bd8ee;	
+	}
+	li {
+		float: left;	
+	}
+	select {
+		display: none;
+		position: absolute;
+		background-color: #8bd8ee;
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
+		text-align: center;	
+		color: #FFFFFF;
+	}
+	select option {
+		padding: 10px 40px;
+	}
+	select a {
+		text-decoration: none;
+		display: block;
+		text-align: center;
+		font-weight: bold;
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
+	}
+	.menu:hover select {
+		display: block;	
+	}
+	input {
+		height: 25px;
+		padding: 5px;
+		margin-left: 5px;
+	}
+	span {
+		font-size: 16pt;
+	}
+	.button {
+		margin-top: 50px;
+		width: 50px;
+		height: 30px;
+		background-color: #8bd8ee;
+		font-weight: bold;
+	}
+	#button_div {
+		text-align: center;
+	}
+</style>
+<script src="http://code.jquery.com/jquery-3.3.1.js"></script>
+<script>
+	$(document).ready(function(){
+		$('.food').on("change", function(){
+			$('.txt').text($('.food option:selected').val());
+		})
+	})
+</script>
+</head>
+<body>
+	<div id="wrap">
+		<h1>음식 주문</h1>
+		<form method="post" action="/" th:object="${formModel}">
+			<ul>
+		    	<li class="menu">
+		        	<a class="under" href="#">분식</a>
+					<select multiple class="food">
+						<option value="김밥">김밥</option>
+						<option value="참치김밥">참치김밥</option>
+						<option value="주먹밥">주먹밥</option>
+						<option value="떡볶이">떡볶이</option>
+						<option value="라볶이">라볶이</option>
+						<option value="돈까스">돈까스</option>
+						<option value="치즈돈까스">치즈돈까스</option>
+						<option value="물냉면">물냉면</option>
+						<option value="비빔냉면">비빔냉면</option>
+						<option value="쪽면">쫄면</option>
+					</select>
+		        </li>
+		        <li class="menu">
+		        	<a class="under" href="#">치킨</a>
+		        	<select multiple class="food">
+						<option value="후라이드">후라이드</option>
+						<option value="양념">양념</option>
+						<option value="간장">간장</option>
+						<option value="파닭">파닭</option>
+						<option value="후라이드+양념">후라이드+양념</option>
+						<option value="후라이드+간장">후라이드+간장</option>
+						<option value="후라이드+파닭">후라이드+파닭</option>
+						<option value="양념+간장">양념+간장</option>
+						<option value="양념+파닭">양념+파닭</option>
+						<option value="후라이드+양념+간장">후라이드+양념+간장</option>
+					</select>
+		        </li>
+		        <li class="menu">
+		        	<a class="under" href="#">피자</a>
+		        	<select multiple class="food">
+						<option value="콤비네이션">콤비네이션</option>
+						<option value="포테이토">포테이토</option>
+						<option value="치즈">치즈</option>
+						<option value="쉬림프">쉬림프</option>
+						<option value="불고기">불고기</option>
+						<option value="고르곤졸라">고르곤졸라</option>
+						<option value="고구마">고구마</option>
+						<option value="하와이안">하와이안</option>
+						<option value="페퍼로니">페퍼로니</option>
+						<option value="스테이크">스테이크</option>
+					</select>
+		        </li>
+		    </ul>
+		    <span>선택 음식 : </span><span class="txt"></span><p>
+		   	<span>주소 : </span><input type="text" size=60 name="address" th:value="*{address}">
+		   	<div id="button_div">
+		   		<input class="button" type="submit" value="주문">
+		   		<input class="button" type="reset" value="취소">
+		   	</div>
+		</form>
+	</div>
+</body>
+</html>
