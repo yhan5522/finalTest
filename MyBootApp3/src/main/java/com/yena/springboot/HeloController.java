@@ -57,6 +57,7 @@ public class HeloController {
 			for (int i=1; i<chicken.length; i++) {
 				food+=", " + chicken[i];
 			}
+			price = 15000 * chicken.length;
 		} catch (NullPointerException e) {
 			food += "";
 		}
@@ -66,10 +67,11 @@ public class HeloController {
 			for (int i=1; i<pizza.length; i++) {
 				food+=", " + pizza[i];
 			}
+			price = 12000 * pizza.length;
 		} catch (NullPointerException e) {
 			food += "";
 		}
-		
+	
 		mav.addObject("food", food);
 		mav.addObject("price", price);
 		mav.addObject("address", address);
