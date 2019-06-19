@@ -73,15 +73,20 @@ public class HeloController {
 			food += "";
 		}
 		
-		if(price<20000) {
-			totalprice = price+2500;
+		if(price<10000) {
+			mav.addObject("alert", "최소 주문 금액은 10000원입니다");
 		} else {
-			totalprice = price;
+			if(price<20000) {
+				totalprice = price+2500;
+			} else {
+				totalprice = price;
+			}
+			mav.addObject("food", food);
+			mav.addObject("totalprice", totalprice);
+			mav.addObject("address", address);
 		}
 		
-		mav.addObject("food", food);
-		mav.addObject("totalprice", totalprice);
-		mav.addObject("address", address);
+		
 		mav.setViewName("index");
 		return mav;
 		

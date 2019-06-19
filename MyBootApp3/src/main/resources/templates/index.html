@@ -99,10 +99,10 @@
 		padding: 5px;
 		background-color: #daeef4;
 	}
-	tr:first-child {
+	tr:first-child, tr:nth-child(2) {
 		text-align: center;
 	}
-	tr:first-child td {
+	tr:first-child td, tr:nth-child(2) td {
 		font-size: 14pt;
 		color: #f04141;
 		background-color: #fff;
@@ -190,6 +190,9 @@
 		   	</div>
 		   	<hr>
 			<table>
+				<tr>
+					<td colspan=3 th:text="${alert}"></td>
+				</tr>
 				<tr>
 					<td colspan=3>30분 이상 걸립니다</td>
 				</tr>
